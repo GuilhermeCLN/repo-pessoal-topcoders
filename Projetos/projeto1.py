@@ -75,24 +75,18 @@ def top_10_baratos(dados):
 
 def menu(dados):
     '''
-    O parâmetro "dados" deve ser uma lista de dicionários representando os produtos.
-    Essa função deverá, em loop, realizar as seguintes ações:
-    - Exibir as seguintes opções:
-        1. Listar categorias
-        2. Listar produtos de uma categoria
-        3. Produto mais caro por categoria
-        4. Produto mais barato por categoria
-        5. Top 10 produtos mais caros
-        6. Top 10 produtos mais baratos
-        0. Sair
     - Ler a opção do usuário.
-    - No caso de opção inválida, imprima uma mensagem de erro.
-    - No caso das opções 2, 3 ou 4, pedir para o usuário digitar a categoria desejada.
-    - Chamar a função adequada para tratar o pedido do usuário e salvar seu retorno.
-    - Imprimir o retorno salvo. 
-    O loop encerra quando a opção do usuário for 0.
     '''
+    opcoes = {
+    '1': listar_categorias,
+    '2': listar_por_categoria,
+    '3': produto_mais_caro,
+    '4': produto_mais_barato,
+    '5': top_10_caros,
+    '6': top_10_baratos}
+    
     n = 1
+
     while n != '0':
         n = input('Olá, seja bem vindo ao menu de análise dos dados de produto! Escolha uma das opções abaixo e digite o número de referência.\n'
                     '1. Listar categorias\n'
@@ -101,10 +95,19 @@ def menu(dados):
                     '4. Produto mais barato por categoria\n'
                     '5. Top 10 produtos mais caros\n'
                     '6. Top 10 produtos mais baratos\n'
-                    '0. Sair\n'
-                )
-        if n == 1
+                    '0. Sair\n')
 
+        if n == '2' or n == '3' or n == '4':
+            categoria = input('Por favor, escolha uma categoria:')
+            chamador = lambda n, dados, categoria: opcoes[n](dados, categoria)
+            print(chamador(n, dados, categoria))
+
+        elif n == '0':
+            continue
+        
+        else:
+            chamador = lambda n, dados: opcoes[n](dados)
+            print(chamador(n, dados))
 
 # Programa Principal - não modificar!
 dados = obter_dados()
