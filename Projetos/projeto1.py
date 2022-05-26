@@ -35,7 +35,6 @@ def listar_por_categoria(dados, categoria):
             lista_prod_cat.append(dic)
     return lista_prod_cat
 
-
 def produto_mais_caro(dados, categoria):
     '''
     O parâmetro "dados" deve ser uma lista de dicionários representando os produtos.
@@ -45,7 +44,6 @@ def produto_mais_caro(dados, categoria):
     lista_prod_cat = listar_por_categoria(dados, categoria)
     prod_mais_caro = sorted(lista_prod_cat, key = lambda x: float(x['preco']), reverse = True)[0]
     return prod_mais_caro
-
 
 def produto_mais_barato(dados, categoria):
     '''
