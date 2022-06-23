@@ -1,5 +1,5 @@
 import json
-path = 'banco_de_dados.json'
+path = (r'C:\Users\Guilerme\Repositórios de códigos\repo-pessoal-topcoders\Projetos\banco_de_dados.json')
 
 def cadastrar_musicos(nome:str, email:str, generos:list, instrumentos:list, lista_dicts:list):
     for dict in lista_dicts:
@@ -11,8 +11,9 @@ def cadastrar_musicos(nome:str, email:str, generos:list, instrumentos:list, list
                     'generos' : generos, 
                     'instrumentos' : instrumentos
                     }
-    lista_dicts_att = lista_dicts.append(dict_cadastro)
-    return lista_dicts_att
+    print(type(lista_dicts))
+    lista_dicts.append(dict_cadastro)
+    return lista_dicts
 
 def carregar_json(path:str):
     with open(path, 'r') as arquivo:
